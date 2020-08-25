@@ -5,27 +5,27 @@ from resumeapp.views import home, resume, blog, contact
 
 class HomePageTest(TestCase):
 
-    def test_root_url_resolves_to_home_page_view(self):
-        found = resolve('/')
-        self.assertEqual(found.func, home)
+    def test_uses_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'home.html')
 
 
 class ResumePageTest(TestCase):
 
-    def test_root_url_resolves_to_resume_page_view(self):
-        found = resolve('/resume/')
-        self.assertEqual(found.func, resume)
+    def test_uses_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'resume.html')
 
 
 class BlogPageTest(TestCase):
 
-    def test_root_url_resolves_to_blog_page_view(self):
-        found = resolve('/blog/')
-        self.assertEqual(found.func, blog)
+    def test_uses_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'blog.html')
 
 
 class ContactPageTest(TestCase):
 
-    def test_root_url_resolves_to_contact_page_view(self):
-        found = resolve('/contact/')
-        self.assertEqual(found.func, contact)
+    def test_uses_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'contact.html')

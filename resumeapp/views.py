@@ -4,16 +4,16 @@ from django.shortcuts import render
 
 
 def home(request):
-    return HttpResponse("Hello, world. You're at the home page.")
+    return render(request, 'home.html')
 
 
 def resume(request):
-    return HttpResponse("Hello, world. You're at the resume page.")
+    return render(request, 'resume.html')
 
 
 def blog(request):
-    return HttpResponse("Hello, world. You're at the blog page.")
+    return render(request, 'blog.html')
 
 
 def contact(request):
-    return HttpResponse("Hello, world. You're at the contact page.")
+    return render(request, 'contact.html')
