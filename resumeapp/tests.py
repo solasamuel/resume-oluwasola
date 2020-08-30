@@ -13,19 +13,19 @@ class HomePageTest(TestCase):
 class ResumePageTest(TestCase):
 
     def test_uses_home_template(self):
-        response = self.client.get('/')
+        response = self.client.get('/resume/')
         self.assertTemplateUsed(response, 'resume.html')
 
 
 class BlogPageTest(TestCase):
 
     def test_uses_home_template(self):
-        response = self.client.get('/')
+        response = self.client.get('/blog/')
         self.assertTemplateUsed(response, 'blog.html')
 
 
 class ContactPageTest(TestCase):
 
     def test_uses_home_template(self):
-        response = self.client.get('/')
+        response = self.client.get('/contact/')
         self.assertTemplateUsed(response, 'contact.html')
