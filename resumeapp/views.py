@@ -12,9 +12,9 @@ def home(request):
 
 def resume(request):
     projects = Project.objects.filter(completion_date__lte=timezone.now()).order_by('completion_date')
-    experiences = Experience.objects.filter(end_date__lte=timezone.now()).order_by('end_date')
-    skills = Skill.objects
-    return render(request, 'resume.html', {'projects': projects, 'experiences': experiences, 'skill': skills})
+    experiences = Experience.objects.all()
+    skills = Skill.objects.all()
+    return render(request, 'resume.html', {'projects': projects, 'skill': skills, 'experiences': experiences})
 
 
 def blog(request):

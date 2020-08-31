@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %} 
+	<h2>Get in touch with me today!</h2>
+
+	<form method="post">
+    	{% csrf_token %}
+    	<div class="contact-form">
+		    {{ form.sender.errors }}
+		    <p>{{ form.sender.label_tag }}</p>
+		    <div class="contact-form-text">
+			    {{ form.sender }}
+			</div>	
+		</div>
+		<div class="contact-form">
+		    {{ form.subject.errors }}
+		    <p>{{ form.subject.label_tag }}</p>
+		    <div class="contact-form-text">
+		    	{{ form.subject }}
+		    </div>
+		</div>
+		<div class="contact-form">
+		    {{ form.message.errors }}
+		    <p>{{ form.message.label_tag }}</p>
+		    <div class="contact-form-text">
+		    	{{ form.message }}
+		    </div>
+		</div>
+    	<input class="contact-form-button" type="submit" value="Send Message">
+	</form>
+{% endblock content %}

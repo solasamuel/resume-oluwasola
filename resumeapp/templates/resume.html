@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sola Samuel | oluwasolasamuel4@gmail.com</title>
+    <link rel="stylesheet" href="{% static "resumeapp/css/style.css" %}" type="text/css" media="screen" />
+  </head>
+  <body>
+    <section class="banner-resume" id="sec">
+      <header>
+        <a href="\" class="logo">Sola Samuel</a>
+        <div id="toggle" onclick="toggle()"></div>
+      </header>
+      <div class="content">
+      <h2><span>Resume</span></h2>
+		<div class="content-resume">
+			<div class="content-resume-proj">
+				<h2>Projects</h2>
+				{% for project in projects %}
+				<h2>{{ project.title }}</h2>
+				<p>Completed on {{ project.completion_date }}</p>
+				<p>{{ project.description|linebreaksbr }}</p>
+				{% endfor %}
+			</div>
+			<div class="content-resume-exp">
+				<h2>Experience</h2>
+				{% for experience in experiences %}
+				<h2>{{ experience.title }}</h2>
+				<p>From {{ experience.start_date }} to {{ experience.end_date }}</p>
+				<p>{{ experience.description|linebreaksbr }}</p>
+				{% endfor %}
+			</div>
+		</div>
+      </div>
+      <ul class="sci">
+        <li>
+          <a href="https://www.facebook.com/oluwasola.samuel.984/"
+            ><img src="{% static "resumeapp/images/facebook.png" %}"
+            alt="Facebook"></a
+          >
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/sola-samuel-15a12918a/"
+            ><img src="{% static "resumeapp/images/linkedin.png" %}"
+            alt="LinkedIn"></a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/solasamuel"
+            ><img src="{% static "resumeapp/images/github.png" %}"
+            alt="Github"></a
+          >
+        </li>
+      </ul>
+    </section>
+    <div id="navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/resume/">Resume</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      function toggle() {
+        var sec = document.getElementById('sec');
+        var nav = document.getElementById('navigation');
+        sec.classList.toggle('active');
+        nav.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
