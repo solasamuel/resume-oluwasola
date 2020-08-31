@@ -2,20 +2,24 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from .models import *
 
 # Create your views here.
-
 
 def home(request):
     return render(request, 'home.html')
 
 
 def resume(request):
-    return render(request, 'resume.html')
+    projects = Project.objects.filter(completion_date__lte=timezone.now()).order_by('completion_date')
+    experiences = Experience.objects.filter(end_date__lte=timezone.now()).order_by('end_date')
+    skills = Skill.objects
+    return render(request, 'resume.html', {'projects': projects, 'experiences': experiences, 'skill': skills})
 
 
 def blog(request):
-    return render(request, 'blog.html')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog.html', {'posts': posts})
 
 def contact(request):
     if request.method == 'GET':

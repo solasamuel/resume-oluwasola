@@ -22,9 +22,15 @@ class Project(models.Model):
 	description = models.TextField()
 	completion_date = models.DateField()
 
+	def __str__(self):
+		return self.title
+
 class Skill(models.Model):
 	name = models.CharField(max_length=200)
 	rating = models.IntegerField()
+
+	def __str__(self):
+		return self.name
 
 class Experience(models.Model):
 	title = models.CharField(max_length=200)
@@ -32,3 +38,6 @@ class Experience(models.Model):
 	start_date = models.DateField()
 	end_date = models.DateField()
 	description = models.TextField()
+
+	def __str__(self):
+		return self.title
