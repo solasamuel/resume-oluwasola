@@ -1,6 +1,6 @@
 from django.urls import resolve
 from django.test import TestCase
-from resumeapp.views import home, resume, blog, contact
+from resumeapp.views import home, resume, blog, contact, success
 
 
 class HomePageTest(TestCase):
@@ -29,3 +29,9 @@ class ContactPageTest(TestCase):
     def test_uses_home_template(self):
         response = self.client.get('/contact/')
         self.assertTemplateUsed(response, 'contact.html')
+
+class SuccessPageTest(TestCase):
+
+    def test_uses_home_template(self):
+        response = self.client.get('/success/')
+        self.assertTemplateUsed(response, 'success.html')
